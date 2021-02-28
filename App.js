@@ -5,6 +5,7 @@
 // console.log(name)
 // console.log(validator.isEmail('akashbhattq1'))
 // console.log(chalk.bold.inverse.green("bhatt"))
+const notes = require('./notes.js')
 const yargs = require('yargs')
 
 yargs.command({
