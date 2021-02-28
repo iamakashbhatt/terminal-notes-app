@@ -1,10 +1,3 @@
-
-// const chalk = require('chalk')
-// const validator = require('validator')
-// const name = require('./utilize')
-// console.log(name)
-// console.log(validator.isEmail('akashbhattq1'))
-// console.log(chalk.bold.inverse.green("bhatt"))
 const notes = require('./notes.js')
 const yargs = require('yargs')
 
@@ -24,16 +17,22 @@ yargs.command({
         }
     },
     handler: function (argv) {
-        console.log("Title : " + argv.title)
-        console.log("Body  : " + argv.body)
+        notes.addNote(argv.title, argv.body)
     }
 })
 
 yargs.command({
     command: 'remove',
     describe: 'remove a new note',
-    handler: function () {
-        console.log("Remove the  notes")
+    builder: {
+        title: {
+            describe: 'Note Title',
+            demandOption: true,
+            type: 'string '
+        }
+    },
+    handler: function (argv) {
+        notes.removeNotes(argv.title)
     }
 })
 
